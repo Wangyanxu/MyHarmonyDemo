@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "GET_NETWORK_INFO",
+      "value": "获取网络连接信息。"
+    },
+    {
+      "name": "INTERNET",
+      "value": "允许程序打开网络套接字，进行网络连接。"
+    },
+    {
+      "name" : "STORE_PERSISTENT_DATA",
+      "value": "允许应用存储持久化的数据"
+    }
+  ]
+}

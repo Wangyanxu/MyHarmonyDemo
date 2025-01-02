@@ -1,0 +1,20 @@
+{
+  "routerMap": [
+    {
+      "name": "ConversationListVC",
+      "pageSourceFile": "src/main/ets/pages/ConversationListVC.ets",
+      "buildFunction": "ConversationListVCBuilder",
+      "data": {
+        "description": "this is ConversationListVC"
+      }
+    },
+    {
+      "name": "ConversationDetail",
+      "pageSourceFile": "src/main/ets/pages/ConversationDetail.ets",
+      "buildFunction": "ConversationDetailBuilder",
+      "data": {
+        "description": "this is ConversationDetail"
+      }
+    }
+  ]
+}
