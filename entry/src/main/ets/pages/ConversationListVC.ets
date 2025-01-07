@@ -19,7 +19,7 @@ export function ConversationListVCBuilder(name: string, param: Array<Conversatio
 @Component
 export struct ConversationListVC {
   @StorageProp('currentBreakpoint') @Watch('watchCurrentBreakpoint') currentBreakpoint: string = 'sm';
-  @State currentConversationUserName: string = '';
+  @State currentConversationTargetId: string = '';
   @State currentContactUserName: string = '';
   @Prop ConversationData: Array<Conversation>;
   @Provide('pageInfo') pageInfo: NavPathStack = new NavPathStack();
@@ -34,7 +34,7 @@ export struct ConversationListVC {
     NavDestination(){
       Flex({ direction: FlexDirection.Column, justifyContent: FlexAlign.Center }) {
         ConversationList({
-          currentConversationUserName: $currentConversationUserName,
+          currentConversationTargetId: $currentConversationTargetId,
           currentContactUserName: $currentContactUserName,
           ConversationData: $ConversationData
         })

@@ -1,5 +1,6 @@
 
 import { StandardIcon } from '../data/StandardIcon';
+import { emitter } from '@kit.BasicServicesKit';
 
 @Component
 export struct ConversationDetailBottom {
@@ -29,7 +30,7 @@ export struct ConversationDetailBottom {
           .customKeyboard(this.CustomKeyboardBuilder())
           .enterKeyType(EnterKeyType.Send)
           .onSubmit((enterKey: EnterKeyType) => {
-            console.log("trigger area onsubmit" + enterKey);
+            emitter.emit("sendMessage");
           })
       }
 

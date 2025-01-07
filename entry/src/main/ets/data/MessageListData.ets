@@ -3,6 +3,8 @@ import { Conversation, ConversationType,
   IAsyncResult,
   IGetLocalMsgByTimeOption, IMEngine,Message,ConversationIdentifier } from '@rongcloud/imlib'
 
+
+
 export default class  MessageListData {
   dataSource: Array<Message>;
   constructor(dataSource:Array<Message>) {
@@ -12,6 +14,7 @@ export default class  MessageListData {
     targetId : string,
     // count = 50
   ): void {
+    this.dataSource.splice(0,this.dataSource.length);
     let conId = new ConversationIdentifier();
     conId.conversationType = ConversationType.Private;
     conId.targetId = targetId;

@@ -11,11 +11,15 @@ import { Conversation, ConversationType,
   IAsyncResult,Message,
   IGetConversationOption, IMEngine } from '@rongcloud/imlib'
 
+interface ConversationDetailParam {
+  dataSource: Array<Message>;
+  targetId: string;
+}
 
 @Component
 export struct ConversationList {
   @StorageProp('currentBreakpoint') currentBreakpoint: string = 'sm';
-  @Link currentConversationUserName: string;
+  @Link currentConversationTargetId: string;
   @Link currentContactUserName: string;
   @Link ConversationData: Array<Conversation>;
   @State private currentIndex: number = 0;
@@ -39,8 +43,13 @@ export struct ConversationList {
                   //   console.log("Callback triggered in A page");
                   //   // 处理 B 页面返回的数据
                   // };
-                  this.pageInfo.pushPathByName("ConversationDetail", this.dataSource,this.handleSendMessage);
-                  this.currentConversationUserName = '11111';
+                  // 然后使用这个类型
+                  const param: ConversationDetailParam = {
+                    dataSource: this.dataSource,
+                    targetId: item.targetId,
+                  };
+                  this.pageInfo.pushPathByName("ConversationDetail",param);
+                  this.currentConversationTargetId = item.targetId;
                   this.currentContactUserName = '';
                   this.currentIndex = index;
                 })
@@ -63,8 +72,4 @@ export struct ConversationList {
       .width('100%')
   }
 
-  private handleSendMessage() {
-    console.log("Enter key was pressed in the child component.");
-    // 在这里处理回车事件，比如发送消息等
-  }
 }
